@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily EOD Tasks - Praveen</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="title-group">
+        <h1>Daily EOD Tasks</h1>
+        <p class="subtitle">Clean · Minimal · Local · Offline</p>
+      </div>
+      <div class="header-actions">
+        <button id="exportBtn" class="btn ghost">Export</button>
+        <label class="btn ghost file-label">
+          Import
+          <input type="file" id="importInput" accept="application/json" hidden />
+        </label>
+        <button id="themeToggle" class="btn icon-btn" title="Toggle dark/light mode">
+          <span id="themeIcon">☾</span>
+        </button>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="create">New Entry</button>
+      <button class="tab" data-tab="entries">Entries</button>
+      <button class="tab" data-tab="settings">Settings</button>
+    </nav>
+
+    <main class="tab-content">
+      <!-- Create Tab -->
+      <section id="tab-create" class="tab-panel active">
+        <div class="card">
+          <div class="card-header">
+            <h2>Create / Edit EOD</h2>
+            <span id="editingBadge" class="badge hidden">Editing</span>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="nameInput">Name</label>
+              <input
+                type="text"
+                id="nameInput"
+                placeholder="Your full name"
+                value="Praveen Jadhav"
+              />
+            </div>
+            <div class="field">
+              <label for="dateInput">Date</label>
+              <input type="date" id="dateInput" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="titleInput">EOD Title</label>
+            <input
+              type="text"
+              id="titleInput"
+              placeholder="e.g. EOD Summary"
+              value="Today's Tasks & Progress"
+            />
+          </div>
+
+          <div class="field">
+            <label for="contentInput">Details</label>
+            <textarea
+              id="contentInput"
+              rows="10"
+              placeholder="Write your tasks and progress here..."
+            ></textarea>
+          </div>
+
+          <div class="button-row">
+            <button id="generateTemplateBtn" class="btn ghost">Generate Template</button>
+            <div class="button-row-right">
+              <button id="copyBtn" class="btn secondary">Copy</button>
+              <button id="clearBtn" class="btn danger">Clear</button>
+              <button id="saveBtn" class="btn primary">Save</button>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Entries Tab -->
+      <section id="tab-entries" class="tab-panel">
+        <div class="card">
+          <div class="card-header">
+            <h2>Saved Entries</h2>
+            <span id="entriesCount" class="muted"></span>
+          </div>
+          <div id="entriesList" class="entries-list empty-state">
+            <p>No entries yet. Create your first EOD in the “New Entry” tab.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Settings Tab -->
+      <section id="tab-settings" class="tab-panel">
+        <div class="card">
+          <div class="card-header">
+            <h2>Settings</h2>
+          </div>
+          <div class="settings-group">
+            <div class="settings-item">
+              <div>
+                <h3>Theme</h3>
+                <p class="muted">Switch between dark and light mode.</p>
+              </div>
+              <button id="settingsThemeToggle" class="btn outline">Toggle Theme</button>
+            </div>
+
+            <div class="settings-item">
+              <div>
+                <h3>Data</h3>
+                <p class="muted">Manage your locally stored EOD entries.</p>
+              </div>
+              <button id="clearAllBtn" class="btn danger">Clear All Entries</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span>Built for Praveen · Stored locally in your browser</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
